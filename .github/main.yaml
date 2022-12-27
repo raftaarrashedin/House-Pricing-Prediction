@@ -1,0 +1,43 @@
+# If we deploy to heroku
+# My workflow name.
+name : Deploy to Heroku
+
+# Run workflow on every push to main branch 
+on :
+  push :
+    branches : [main]
+
+# My workflow jobs
+jobs :
+  build :
+    runs-on : ubuntu- latest
+    steps :
+      # Check out your repository
+        name : Checkout
+        uses : actions/checkout
+
+
+# IMPORTANT PART !
+      name : Build,Push and Release a Docker container to Heroku
+      uses : gounit/heroku-docker-deploy@
+      
+      #Email
+      email : ${{secrets.HEROKU_EMAIL}}  
+
+      # API Key
+      heroku_api_key : ${{secrets.HEROKU_API_KEY}}
+
+      # Heroku app name
+      heroku_app_name : ${{secrets.HEROKU_APP_NAME}}
+
+      #DOCKER FILE DIRECTORY
+      dockerfile_directory : ./
+
+      #DOCKER FILE NAME
+      dockerfile_name : Dockerfile
+
+      docker_options : "--no-cache"
+
+
+      process_type : web
+      
