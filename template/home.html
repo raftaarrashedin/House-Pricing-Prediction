@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>House Price Prediction</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1>Hii, This is MOHAMMAD RASHEDIN, Welcom to my Web App called House price prediction.</h1>
+    <div class="login">
+        <h1>House Price Prediction</h1>
+        <!-- Input for receiving query to our ML -->
+        <form action="{{url_for('predict')}}" method="post">
+            <input type="text" name="CRIM" placeholder="CRIM" required="required"/><br><br>
+            <input type="text" name="ZN" placeholder="ZN" required="required"/><br><br>
+            <input type="text" name="INDUS" placeholder="INDUS" required = "required"/><br><br>
+            <input type="text" name="CHAS" placeholder="CHAS" required="required"/><br><br>
+            <input type="text" name = "NOX" placeholder="NOX" required="required"/><br><br>
+            <input type="text" name = "NOX" placeholder="NOX" required="required"/><br><br>
+            <input type = "text" name = "RM" placeholder="RM" required ="required"/><br><br>
+            <input type = "text" name = "Age" placeholder="Age" required = "required"/><br><br>
+            <input type = "text" name="DIS" placeholder="DIS" required = "required" /><br><br>
+            <input type="text" name ="RAD" placeholder="RAD" required="required" /><br><br>
+            <input type="text" name="TAX" placeholder="TAX" required="required" /><br><br>
+            <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required"/><br><br>
+            <input type="text" name="B" placeholder="B" required="required"/><br><br>
+            <input type ="text" name="LSTAT" placeholder="LSTAT" required="required"/><br><br>
+
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    {{prediction_text}}
+    <br>
+    <br>
+</body>
+</html>
